@@ -1,0 +1,365 @@
+<<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TechActualidad</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    body {
+      padding-top: 70px;
+    }
+    footer {
+      background-color: #f8f9fa;
+      padding: 20px;
+      margin-top: 30px;
+    }
+    iframe {
+      width: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">TechActualidad</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#noticias">Noticias</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ia">IA</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cursos">Cursos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#buzon">Buzón</a></li>
+          <li class="nav-item"><a class="nav-link" href="#clima">Clima</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1 class="my-4 text-center">🌐 Aupachus</h1>
+    <p class="text-center">Noticias, inteligencia artificial, clima y más en un solo lugar</p>
+    <p class="text-center">Soy Jesus Marin, pero puedes llamarme Aupachus</p>
+    <p class="text-center">Esta página es un proyecto personal y no tiene fines comerciales.</p>
+    <p class="text-center">Si tienes alguna sugerencia, no dudes en dejarla en el buzón.</p>
+
+    <!-- Botón de correo centrado y visible con botón Discord a la derecha -->
+    <div class="text-center my-4 d-flex justify-content-center gap-3 flex-wrap">
+      <a href="mailto:artemugiocursojava@gmail.com" 
+         class="btn btn-lg btn-outline-primary email-btn"
+         style="transition: color 0.3s;">
+        📧 Enviar correo a artemugiocursojava@gmail.com
+      </a>
+      <a href="https://discord.gg/s8AJMEf5rA"
+         target="_blank"
+         class="btn btn-lg btn-outline-secondary discord-btn"
+         style="transition: color 0.3s;">
+        <i class="bi bi-discord"></i> Únete a mi Discord
+      </a>
+    </div>
+    <style>
+      .email-btn:hover, .email-btn:focus {
+        color: #fff !important;
+        background-color: #0d6efd !important;
+        border-color: #0d6efd !important;
+      }
+      .discord-btn:hover, .discord-btn:focus {
+        color: #fff !important;
+        background-color: #5865F2 !important;
+        border-color: #5865F2 !important;
+      }
+    </style>
+    
+
+    <!-- Clima (ahora lo primero de todo) -->
+    <section id="clima" class="my-5">
+      <h2>⛅ Clima actual</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <h5>Bilbao</h5>
+          <iframe src="https://www.meteoblue.com/en/weather/widget/three/bilbao_spain_3128026?geoloc=fixed&days=3&tempunit=CELSIUS" height="270"></iframe>
+        </div>
+        <div class="col-md-4">
+          <h5>Madrid</h5>
+          <iframe src="https://www.meteoblue.com/en/weather/widget/three/madrid_spain_3117735?geoloc=fixed&days=3&tempunit=CELSIUS" height="270"></iframe>
+        </div>
+        <div class="col-md-4">
+          <h5>Valencia</h5>
+          <iframe src="https://www.meteoblue.com/en/weather/widget/three/valencia_spain_2509954?geoloc=fixed&days=3&tempunit=CELSIUS" height="270"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Emisoras de radio (ahora antes de IA) -->
+    <section id="radio" class="my-5">
+      <h2>📻 Emisoras de Radio en Vivo</h2>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <h5 class="card-title">Radio Nacional de España</h5>
+              <audio controls style="width:100%;">
+                <source src="https://rtvelivestream.akamaized.net/rne/radio1.m3u8" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+              </audio>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <h5 class="card-title">Cadena SER</h5>
+              <audio controls style="width:100%;">
+                <source src="https://playerservices.streamtheworld.com/api/livestream-redirect/SER_SC" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+              </audio>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <h5 class="card-title">Los 40 Principales</h5>
+              <audio controls style="width:100%;">
+                <source src="https://playerservices.streamtheworld.com/api/livestream-redirect/LOS40_SC" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+              </audio>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="mt-3 text-muted text-center">Haz clic en el botón de play para escuchar la emisora que prefieras.</p>
+    </section>
+
+    <!-- Plataformas de IA (después de radio) -->
+    <section id="ia" class="my-5">
+      <h2>🤖 Plataformas de Inteligencia Artificial</h2>
+      <div class="row row-cols-2 row-cols-md-4 g-4">
+        <div class="col">
+          <a href="https://chat.openai.com" target="_blank" class="btn btn-primary w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-robot" style="font-size:2rem;"></i>
+            <span class="mt-2">ChatGPT</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://gemini.google.com" target="_blank" class="btn btn-warning w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-lightning-charge" style="font-size:2rem;"></i>
+            <span class="mt-2">Gemini</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://claude.ai" target="_blank" class="btn btn-success w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-chat-dots" style="font-size:2rem;"></i>
+            <span class="mt-2">Claude</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://chat.deepseek.com/" target="_blank" class="btn btn-info w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-search" style="font-size:2rem;"></i>
+            <span class="mt-2">Deepseek</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://perplexity.ai" target="_blank" class="btn btn-secondary w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-question-circle" style="font-size:2rem;"></i>
+            <span class="mt-2">Perplexity</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://www.phind.com/" target="_blank" class="btn btn-dark w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-globe" style="font-size:2rem;"></i>
+            <span class="mt-2">Phind</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://copilot.microsoft.com/" target="_blank" class="btn btn-primary w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-microsoft" style="font-size:2rem;"></i>
+            <span class="mt-2">Copilot</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://www.midjourney.com/" target="_blank" class="btn btn-danger w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-image" style="font-size:2rem;"></i>
+            <span class="mt-2">Midjourney</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://www.stability.ai/" target="_blank" class="btn btn-success w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-brush" style="font-size:2rem;"></i>
+            <span class="mt-2">Stable Diffusion</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://www.leonardo.ai/" target="_blank" class="btn btn-warning w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-palette" style="font-size:2rem;"></i>
+            <span class="mt-2">Leonardo AI</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://www.runwayml.com/" target="_blank" class="btn btn-info w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-film" style="font-size:2rem;"></i>
+            <span class="mt-2">Runway</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://www.nvidia.com/en-us/ai/" target="_blank" class="btn btn-success w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-cpu" style="font-size:2rem;"></i>
+            <span class="mt-2">NVIDIA AI</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plataformas de Redes Sociales -->
+    <section id="redes" class="my-5">
+      <h2>🌐 Plataformas de Redes Sociales</h2>
+      <div class="row row-cols-2 row-cols-md-4 g-4">
+        <div class="col">
+          <a href="https://www.facebook.com/" target="_blank" class="btn btn-primary w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-facebook" style="font-size:2rem;"></i>
+            <span class="mt-2">Facebook</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://www.twitter.com/" target="_blank" class="btn btn-info w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-twitter-x" style="font-size:2rem;"></i>
+            <span class="mt-2">X (Twitter)</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://www.instagram.com/" target="_blank" class="btn btn-danger w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-instagram" style="font-size:2rem;"></i>
+            <span class="mt-2">Instagram</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://www.tiktok.com/" target="_blank" class="btn btn-dark w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-tiktok" style="font-size:2rem;"></i>
+            <span class="mt-2">TikTok</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://www.linkedin.com/" target="_blank" class="btn btn-primary w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-linkedin" style="font-size:2rem;"></i>
+            <span class="mt-2">LinkedIn</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://www.youtube.com/" target="_blank" class="btn btn-danger w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-youtube" style="font-size:2rem;"></i>
+            <span class="mt-2">YouTube</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://www.snapchat.com/" target="_blank" class="btn btn-warning w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-snapchat" style="font-size:2rem;"></i>
+            <span class="mt-2">Snapchat</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://www.pinterest.com/" target="_blank" class="btn btn-danger w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-pinterest" style="font-size:2rem;"></i>
+            <span class="mt-2">Pinterest</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://www.reddit.com/" target="_blank" class="btn btn-warning w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-reddit" style="font-size:2rem;"></i>
+            <span class="mt-2">Reddit</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://discord.gg/s8AJMEf5rA" target="_blank" class="btn btn-secondary w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-discord" style="font-size:2rem;"></i>
+            <span class="mt-2">Discord (Servidor)</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://telegram.org/" target="_blank" class="btn btn-info w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-telegram" style="font-size:2rem;"></i>
+            <span class="mt-2">Telegram</span>
+          </a>
+        </div>
+        <div class="col">
+          <a href="https://www.whatsapp.com/" target="_blank" class="btn btn-success w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3" style="min-height:120px;">
+            <i class="bi bi-whatsapp" style="font-size:2rem;"></i>
+            <span class="mt-2">WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Noticias de Xataka -->
+    <ul class="list-group">
+      <li class="list-group-item">
+        <a href="https://www.xataka.com/feed" target="_blank">Ver noticias de Xataka (RSS)</a>
+      </li>
+    </ul>
+
+    <!-- Noticias de Menéame -->
+    <section id="meneame" class="my-5">
+      <h2>📢 Noticias de Menéame</h2>
+      <iframe src="https://www.meneame.net" height="700"></iframe>
+    </section>
+
+    <!-- Enlaces a RSS de Xataka y MSN -->
+    <div class="my-4">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <a href="https://www.xataka.com/feed" target="_blank">Ver noticias de Xataka (RSS)</a>
+        </li>
+        <li class="list-group-item">
+          <a href="https://www.msn.com/es-es/noticias" target="_blank">Ver noticias de MSN</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Cursos y tutoriales -->
+    <section id="cursos" class="my-5">
+      <h2>🎓 Cursos y Tutoriales de Tecnología</h2>
+      <ul class="list-group">
+        <li class="list-group-item"><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp (Certificaciones gratuitas, inglés y español)</a></li>
+        <li class="list-group-item"><a href="https://www.coursera.org/" target="_blank">Coursera (Certificaciones gratuitas y de pago, inglés y español)</a></li>
+        <li class="list-group-item"><a href="https://www.edx.org/" target="_blank">edX (Certificaciones gratuitas y de pago, inglés y español)</a></li>
+        <li class="list-group-item"><a href="https://www.udemy.com/" target="_blank">Udemy (Cursos pagados y gratuitos, inglés y español)</a></li>
+        <li class="list-group-item"><a href="https://www.futurelearn.com/" target="_blank">FutureLearn (Certificaciones gratuitas y de pago, inglés)</a></li>
+        <li class="list-group-item"><a href="https://www.udacity.com/" target="_blank">Udacity (Certificaciones gratuitas y de pago, inglés)</a></li>
+        <li class="list-group-item"><a href="https://www.alison.com/" target="_blank">Alison (Certificaciones gratuitas, inglés)</a></li>
+        <li class="list-group-item"><a href="https://www.codecademy.com/" target="_blank">Codecademy (Certificaciones gratuitas y de pago, inglés)</a></li>
+        <li class="list-group-item"><a href="https://www.khanacademy.org/" target="_blank">Khan Academy (Cursos gratuitos, inglés y español)</a></li>
+        <li class="list-group-item"><a href="https://www.linkedin.com/learning/" target="_blank">LinkedIn Learning (Certificaciones gratuitas y de pago, inglés y español)</a></li>
+        <li class="list-group-item"><a href="https://www.open.edu/openlearn/free-courses" target="_blank">OpenLearn (Certificaciones gratuitas, inglés)</a></li>
+        <li class="list-group-item"><a href="https://www.youtube.com/c/midudev" target="_blank">YouTube – midudev (Español)</a></li>
+      </ul>
+    </section>
+
+    <!-- Buzón de sugerencias -->
+    <section id="buzon" class="my-5">
+      <h2>📬 Buzón de Sugerencias</h2>
+      <form action="https://formspree.io/f/xwpoygop" method="POST">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre:</label>
+          <input type="text" class="form-control" name="nombre" required>
+        </div>
+        <div class="mb-3">
+          <label for="mensaje" class="form-label">Mensaje:</label>
+          <textarea class="form-control" name="mensaje" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Enviar</button>
+      </form>
+      <p class="mt-2 text-muted">* Usamos Formspree para manejar formularios.</p>
+    </section>
+
+    
+  <footer class="text-center">
+    <p>&copy; 2025 TechActualidad | Página sin fines comerciales</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
