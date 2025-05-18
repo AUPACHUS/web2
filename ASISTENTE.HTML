@@ -275,8 +275,38 @@
             <span style="font-size:1.2em;">🚀</span> ¡Empieza a escribir tu mensaje abajo y descubre todo lo que AsistenTech puede hacer por ti!
         </p>
     </section>
-    
-    <div class="api-key-container">
+    <section style="margin-bottom: 20px; background: #fffbe7; border-left: 5px solid #ff9800; border-radius: 8px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(255,152,0,0.07);">
+        <h2 style="color: #ff9800; font-size: 1.15rem; margin-bottom: 10px;">¿Cómo obtener tu API Key de ChatGPT (OpenAI) y usarla aquí?</h2>
+        <ol style="color: #333; font-size: 1.05rem; margin-left: 18px; margin-bottom: 0;">
+            <li style="margin-bottom: 7px;">
+                <strong>Crea una cuenta en OpenAI:</strong>
+                <br>
+                Ve a <a href="https://platform.openai.com/signup" target="_blank" style="color:#4a6fa5; text-decoration:underline;">https://platform.openai.com/signup</a> y regístrate con tu correo electrónico.
+            </li>
+            <li style="margin-bottom: 7px;">
+                <strong>Accede a tu panel de OpenAI:</strong>
+                <br>
+                Una vez registrado e iniciado sesión, entra en <a href="https://platform.openai.com/api-keys" target="_blank" style="color:#4a6fa5; text-decoration:underline;">https://platform.openai.com/api-keys</a>.
+            </li>
+            <li style="margin-bottom: 7px;">
+                <strong>Genera una nueva API Key:</strong>
+                <br>
+                Haz clic en el botón <b>"Create new secret key"</b>. Ponle un nombre si lo deseas y copia la clave que se genera (empieza por <code>sk-...</code>).
+            </li>
+            <li style="margin-bottom: 7px;">
+                <strong>Pega tu API Key en el asistente:</strong>
+                <br>
+                Vuelve a esta página, pega la clave en el campo <b>API Key de OpenAI</b> y pulsa <b>Guardar</b>.
+            </li>
+            <li>
+                <strong>¡Listo!</strong>
+                <br>
+                Ahora puedes empezar a chatear con el asistente.<br>
+                <span style="color:#4a6fa5;">Tu clave se guarda solo en tu navegador y nunca se envía a ningún servidor.</span>
+            </li>
+        </ol>
+    </section>
+        <h3 style="color: #ff9800;    <div class="api-key-container">
         <label for="openai-key">API Key de OpenAI:</label>
         <input type="password" id="openai-key" placeholder="sk-..." style="width: 300px; padding: 8px; margin: 0 10px;">
         <button onclick="saveAPIKey()" class="send-btn" style="padding: 8px 15px;">Guardar</button>
