@@ -7,6 +7,75 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <style>
+    :root {
+      --bg: #fff;
+      --text: #23272b;
+      --card: #f8f9fa;
+      --nav-link: #23272b;
+      --nav-link-hover: #0dcaf0;
+      --nav-link-active: #ffc107;
+      --navbar-bg: #e9ecef;
+    }
+    [data-theme="dark"] {
+      --bg: #181a1b;
+      --text: #f8f9fa;
+      --card: #23272b;
+      --nav-link: #f8f9fa;
+      --nav-link-hover: #ffc107;
+      --nav-link-active: #0dcaf0;
+      --navbar-bg: #23272b;
+    }
+    body {
+      background: var(--bg) !important;
+      color: var(--text) !important;
+      transition: background 0.3s, color 0.3s;
+    }
+    .card, .list-group-item, .footer {
+      background: var(--card) !important;
+      color: var(--text) !important;
+      transition: background 0.3s, color 0.3s;
+    }
+    .navbar.animated-bg {
+      background: var(--navbar-bg) !important;
+      transition: background 0.5s;
+      /* Mantiene el efecto de brillo si quieres, puedes quitarlo si prefieres solo color sólido */
+      background-image: linear-gradient(90deg, #23272b 0%, #6c757d 50%, #23272b 100%);
+      background-size: 200% 100%;
+      animation: titanio-brillo 5s linear infinite alternate;
+    }
+    .navbar-nav .nav-link {
+      color: var(--nav-link) !important;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link:focus {
+      color: var(--nav-link-hover) !important;
+      text-shadow: 0 0 4px var(--nav-link-hover);
+    }
+    .navbar-nav .nav-link.active {
+      color: var(--nav-link-active) !important;
+      text-decoration: underline;
+    }
+    .dark-toggle {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      background: var(--card);
+      color: var(--text);
+      border: 2px solid #888;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
     body {
       padding-top: 70px;
     }
@@ -19,13 +88,39 @@
       width: 100%;
       border: none;
     }
+    .navbar-brand.animated-bg {
+      background-color: #e9ecef;
+      border-radius: 8px;
+      padding: 6px 18px;
+      transition: background-color 0.5s;
+    }
+    .navbar.animated-bg {
+      background: linear-gradient(90deg, #23272b 0%, #6c757d 50%, #23272b 100%);
+      background-size: 200% 100%;
+      animation: titanio-brillo 5s linear infinite alternate;
+      transition: background 0.5s;
+    }
+    .navbar .navbar-brand.animated-bg {
+      background-color: transparent !important;
+      border-radius: 8px;
+      padding: 6px 18px;
+      transition: none;
+    }
+    @keyframes titanio-brillo {
+      0% {
+        background-position: 0% 0%;
+      }
+      100% {
+        background-position: 100% 0%;
+      }
+    }
   </style>
 </head>
 <body>
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top animated-bg">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Inicio</a>
+      <a class="navbar-brand animated-bg" href="#">Inicio</a>
       <div class="ms-3 d-flex align-items-center">
         <div id="digital-clock" class="text-white fw-bold" style="font-size:1rem; min-width:220px;"></div>
       </div>
@@ -62,10 +157,85 @@
     updateClock();
   </script>
 
-  <div class="container">
-    <h1 class="my-4 text-center">🌐 Aupachus</h1>
-    <p class="text-center">Noticias, inteligencia artificial, clima y más en un solo lugar</p>
-    <p class="text-center">Soy Jesus Marin, pero puedes llamarme Aupachus</p>
+  <h1 class="my-4 text-center">
+      <button 
+        onclick="window.open('https://www.twitch.tv/aupachus','_blank')" 
+        class="btn btn-link p-0 m-0" 
+        style="font-size:2.2rem; text-decoration:none; color:inherit; background:none; border:none; cursor:pointer;">
+        🌐 Aupachus
+      </button>
+  </h1>
+    </h1>
+    <div class="intro-container my-4">
+      <h1 class="intro-title text-center">Jesus Marín <span class="nickname">"Aupachus"</span></h1>
+      
+      <div class="intro-highlight text-center">
+        <p class="intro-tagline mb-1">Noticias • Clima • IA • Redes Sociales</p>
+        <p class="intro-subtitle mb-2">Todo en un solo lugar, diseñado para curiosos tecnológicos</p>
+      </div>
+
+      <div class="intro-bio text-center">
+        <p class="intro-text mb-1">Técnico Superior en Sistemas de Telecomunicaciones e Informáticos</p>
+        <p class="intro-text mb-2">Apasionado por integrar tecnología y creatividad en soluciones innovadoras</p>
+      </div>
+
+      <div class="intro-note text-center">
+        <p class="intro-disclaimer mb-1">✨ Proyecto personal sin fines comerciales</p>
+        <p class="intro-cta mb-0">¿Ideas o colaboraciones? <a href="#buzon" class="cta-link">¡Hablemos!</a></p>
+      </div>
+    </div>
+    <style>
+      .intro-container {
+        max-width: 700px;
+        margin: 0 auto 2rem auto;
+        padding: 1.5rem 1rem;
+        background: var(--card);
+        border-radius: 1rem;
+        box-shadow: 0 2px 16px rgba(44,62,80,0.07);
+      }
+      .intro-title {
+        font-size: 2.1rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      .nickname {
+        color: var(--nav-link-hover);
+        font-size: 1.2em;
+        font-weight: 400;
+      }
+      .intro-highlight {
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      .intro-tagline {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--nav-link-active);
+      }
+      .intro-subtitle {
+        font-size: 1rem;
+        color: var(--text);
+      }
+      .intro-bio {
+        margin-bottom: 1rem;
+      }
+      .intro-text {
+        font-size: 1rem;
+        color: var(--text);
+      }
+      .intro-note {
+        font-size: 0.98rem;
+        color: #888;
+      }
+      .cta-link {
+        color: var(--nav-link-hover);
+        text-decoration: underline;
+        font-weight: 600;
+      }
+      .cta-link:hover {
+        color: var(--nav-link-active);
+      }
+    </style>
     <p class="text-center">Esta página es un proyecto personal y no tiene fines comerciales.</p>
     <p class="text-center">Si tienes alguna sugerencia, no dudes en dejarla en el buzón.</p>
 
@@ -428,7 +598,7 @@
       <div class="row row-cols-2 row-cols-md-4 g-4">
         <div class="col">
           <a href="https://www.twitch.tv/elmillor" target="_blank" class="btn btn-dark w-100 h-100 d-flex flex-column justify-content-center align-items-center p-4 rounded-3">
-            <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/6e7e4b2e-2e4d-4b8d-8c7e-7e7e7e7e7e7e-profile_image-70x70.png" alt="ElmiilloR" class="mb-2 rounded-circle" width="48" height="48">
+            <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/6e7e4b2e-2e4d-4b8d-8c7e-7e7e7e7e7e7-profile_image-70x70.png" alt="ElmiilloR" class="mb-2 rounded-circle" width="48" height="48">
             <span>ElmiilloR</span>
           </a>
         </div>
@@ -539,6 +709,43 @@
     <p>&copy; 2025 TechActualidad | Página sin fines comerciales</p>
   </footer>
 
+  <button class="dark-toggle" id="darkToggle" title="Cambiar modo oscuro/claro">
+    <i class="bi bi-moon"></i>
+  </button>
+  <script>
+    // Dark mode toggle
+    const btn = document.getElementById('darkToggle');
+    function setTheme(dark) {
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : '');
+      btn.innerHTML = dark ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon"></i>';
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+    }
+    btn.onclick = () => setTheme(document.documentElement.getAttribute('data-theme') !== 'dark');
+    // Load theme
+    setTheme(localStorage.getItem('theme') === 'dark');
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Animación de color de fondo para toda la barra superior
+    document.addEventListener('DOMContentLoaded', function () {
+      const navbar = document.querySelector('.navbar.animated-bg');
+      if (navbar) {
+        let step = 0;
+        function animateBg() {
+          // De gris claro (#e9ecef) a gris muy oscuro (#23272b)
+          const start = [233, 236, 239];
+          const end = [35, 39, 43];
+          const t = (Math.sin(step) + 1) / 2; // Oscila entre 0 y 1
+          const r = Math.round(start[0] + (end[0] - start[0]) * t);
+          const g = Math.round(start[1] + (end[1] - start[1]) * t);
+          const b = Math.round(start[2] + (end[2] - start[2]) * t);
+          navbar.style.backgroundColor = `rgb(${r},${g},${b})`;
+          step += 0.02;
+          requestAnimationFrame(animateBg);
+        }
+        animateBg();
+      }
+    });
+  </script>
 </body>
 </html>
