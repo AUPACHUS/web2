@@ -159,21 +159,24 @@
     updateClock();
   </script>
 
-  <!-- SECCIÓN DE CLIMA AL INICIO -->
+  <!-- SECCIÓN DE CLIMA AL INICIO (20% más pequeña) -->
   <section id="clima" class="my-5">
-    <h2>⛅ Clima actual</h2>
+    <h2 style="font-size:1.4rem;">⛅ Clima actual</h2>
     <div class="row">
       <div class="col-md-4">
-        <h5>Bilbao</h5>
-        <iframe src="https://www.meteoblue.com/en/weather/widget/three/bilbao_spain_3128026?geoloc=fixed&days=3&tempunit=CELSIUS" height="270"></iframe>
+        <h5 style="font-size:1rem;">Bilbao</h5>
+        <iframe src="https://www.meteoblue.com/en/weather/widget/three/bilbao_spain_3128026?geoloc=fixed&days=3&tempunit=CELSIUS"
+          height="216" style="width:100%; min-height:120px; max-width:100%;"></iframe>
       </div>
       <div class="col-md-4">
-        <h5>Madrid</h5>
-        <iframe src="https://www.meteoblue.com/en/weather/widget/three/madrid_spain_3117735?geoloc=fixed&days=3&tempunit=CELSIUS" height="270"></iframe>
+        <h5 style="font-size:1rem;">Madrid</h5>
+        <iframe src="https://www.meteoblue.com/en/weather/widget/three/madrid_spain_3117735?geoloc=fixed&days=3&tempunit=CELSIUS"
+          height="216" style="width:100%; min-height:120px; max-width:100%;"></iframe>
       </div>
       <div class="col-md-4">
-        <h5>Valencia</h5>
-        <iframe src="https://www.meteoblue.com/en/weather/widget/three/valencia_spain_2509954?geoloc=fixed&days=3&tempunit=CELSIUS" height="270"></iframe>
+        <h5 style="font-size:1rem;">Valencia</h5>
+        <iframe src="https://www.meteoblue.com/en/weather/widget/three/valencia_spain_2509954?geoloc=fixed&days=3&tempunit=CELSIUS"
+          height="216" style="width:100%; min-height:120px; max-width:100%;"></iframe>
       </div>
     </div>
   </section>
@@ -628,6 +631,111 @@
         reader.readAsDataURL(file);
       });
     </script>
+    <!-- Sección MyWall: Muro de comentarios públicos con alias y correo privado -->
+<section id="mywall" class="my-5">
+  <h2>📝 MyWall - Deja tu comentario y responde a otros</h2>
+  <form id="mywall-form" class="mb-4" autocomplete="off">
+    <div class="row g-2">
+      <div class="col-md-4">
+        <input type="email" class="form-control" id="mywall-email" placeholder="Correo electrónico (privado)" required>
+      </div>
+      <div class="col-md-3">
+        <input type="text" class="form-control" id="mywall-alias" placeholder="Alias público" maxlength="20" required>
+      </div>
+      <div class="col-md-5">
+        <input type="text" class="form-control" id="mywall-comment" placeholder="Escribe tu comentario..." maxlength="200" required>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Publicar</button>
+    <div id="mywall-msg" class="mt-2"></div>
+  </form>
+  <div id="mywall-comments" class="list-group">
+    <!-- Aquí se mostrarán los comentarios -->
+  </div>
+  <p class="text-muted mt-3" style="font-size:0.98em;">
+    Tu correo electrónico es privado y solo se usará para notificaciones o respuestas. El alias y comentario serán públicos.<br>
+    Puedes responder a cualquier comentario haciendo clic en "Responder".
+  </p>
+</section>
+<script>
+  // Demo local: comentarios solo en el navegador, correo no visible ni enviado
+  const mywallForm = document.getElementById('mywall-form');
+  const mywallComments = document.getElementById('mywall-comments');
+  const mywallMsg = document.getElementById('mywall-msg');
+  let mywallData = JSON.parse(localStorage.getItem('mywall-comments') || '[]');
+
+  function renderMyWall() {
+    mywallComments.innerHTML = '';
+    if (mywallData.length === 0) {
+      mywallComments.innerHTML = '<div class="list-group-item text-muted">No hay comentarios aún. ¡Sé el primero!</div>';
+      return;
+    }
+    mywallData.forEach((item, idx) => {
+      const replies = (item.replies || []).map(reply =>
+        `<div class="ms-4 mt-2 p-2 border rounded bg-light">
+          <b>${reply.alias}</b>: ${reply.comment}
+        </div>`
+      ).join('');
+      mywallComments.innerHTML += `
+        <div class="list-group-item">
+          <b>${item.alias}</b>: ${item.comment}
+          <button class="btn btn-link btn-sm ms-2" onclick="replyMyWall(${idx})">Responder</button>
+          <div id="reply-form-${idx}"></div>
+          ${replies}
+        </div>
+      `;
+    });
+  }
+
+  mywallForm.onsubmit = function(e) {
+    e.preventDefault();
+    const email = document.getElementById('mywall-email').value.trim();
+    const alias = document.getElementById('mywall-alias').value.trim();
+    const comment = document.getElementById('mywall-comment').value.trim();
+    if (!email || !alias || !comment) {
+      mywallMsg.innerHTML = '<span class="text-danger">Completa todos los campos.</span>';
+      return;
+    }
+    mywallData.push({ email, alias, comment, replies: [] });
+    localStorage.setItem('mywall-comments', JSON.stringify(mywallData));
+    mywallMsg.innerHTML = '<span class="text-success">¡Comentario publicado!</span>';
+    mywallForm.reset();
+    renderMyWall();
+  };
+
+  window.replyMyWall = function(idx) {
+    const replyDiv = document.getElementById(`reply-form-${idx}`);
+    if (replyDiv.innerHTML) {
+      replyDiv.innerHTML = '';
+      return;
+    }
+    replyDiv.innerHTML = `
+      <form onsubmit="submitReplyMyWall(event,${idx})" class="mt-2">
+        <input type="text" class="form-control mb-1" id="reply-alias-${idx}" placeholder="Tu alias" maxlength="20" required>
+        <input type="text" class="form-control mb-1" id="reply-comment-${idx}" placeholder="Tu respuesta..." maxlength="200" required>
+        <button type="submit" class="btn btn-sm btn-success">Responder</button>
+        <button type="button" class="btn btn-sm btn-secondary ms-2" onclick="closeReplyMyWall(${idx})">Cancelar</button>
+      </form>
+    `;
+  };
+
+  window.submitReplyMyWall = function(e, idx) {
+    e.preventDefault();
+    const alias = document.getElementById(`reply-alias-${idx}`).value.trim();
+    const comment = document.getElementById(`reply-comment-${idx}`).value.trim();
+    if (!alias || !comment) return;
+    mywallData[idx].replies = mywallData[idx].replies || [];
+    mywallData[idx].replies.push({ alias, comment });
+    localStorage.setItem('mywall-comments', JSON.stringify(mywallData));
+    renderMyWall();
+  };
+
+  window.closeReplyMyWall = function(idx) {
+    document.getElementById(`reply-form-${idx}`).innerHTML = '';
+  };
+
+  renderMyWall();
+</script>
   <footer class="text-center">
     <p>&copy; 2025 TechActualidad | Página sin fines comerciales</p>
   </footer>
