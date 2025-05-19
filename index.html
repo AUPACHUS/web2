@@ -137,6 +137,7 @@
           <li class="nav-item"><a class="nav-link" href="#redes">Redes</a></li>
           <li class="nav-item"><a class="nav-link" href="#meneame">Menéame</a></li>
           <li class="nav-item"><a class="nav-link" href="#cursos">Cursos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#videocursos">Videocursos</a></li>
           <li class="nav-item"><a class="nav-link" href="#buzon">Buzón</a></li>
           <li class="nav-item"><a class="nav-link" href="#steam">Steam</a></li>
           <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
@@ -158,13 +159,33 @@
     updateClock();
   </script>
 
+  <!-- SECCIÓN DE CLIMA AL INICIO -->
+  <section id="clima" class="my-5">
+    <h2>⛅ Clima actual</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <h5>Bilbao</h5>
+        <iframe src="https://www.meteoblue.com/en/weather/widget/three/bilbao_spain_3128026?geoloc=fixed&days=3&tempunit=CELSIUS" height="270"></iframe>
+      </div>
+      <div class="col-md-4">
+        <h5>Madrid</h5>
+        <iframe src="https://www.meteoblue.com/en/weather/widget/three/madrid_spain_3117735?geoloc=fixed&days=3&tempunit=CELSIUS" height="270"></iframe>
+      </div>
+      <div class="col-md-4">
+        <h5>Valencia</h5>
+        <iframe src="https://www.meteoblue.com/en/weather/widget/three/valencia_spain_2509954?geoloc=fixed&days=3&tempunit=CELSIUS" height="270"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENIDO PRINCIPAL DE LA WEB -->
   <h1 class="my-4 text-center">
-      <button 
-        onclick="window.open('https://www.twitch.tv/aupachus','_blank')" 
-        class="btn btn-link p-0 m-0" 
-        style="font-size:2.2rem; text-decoration:none; color:inherit; background:none; border:none; cursor:pointer;">
-        🌐 Aupachus
-      </button>
+    <button 
+      onclick="window.open('https://www.twitch.tv/aupachus','_blank')" 
+      class="btn btn-link p-0 m-0" 
+      style="font-size:2.2rem; text-decoration:none; color:inherit; background:none; border:none; cursor:pointer;">
+      🌐 Aupachus
+    </button>
   </h1>
     </h1>
     <div class="intro-container my-4">
@@ -267,25 +288,6 @@
       }
     </style>
     
-
-    <!-- Clima (ahora lo primero de todo) -->
-    <section id="clima" class="my-5">
-      <h2>⛅ Clima actual</h2>
-      <div class="row">
-        <div class="col-md-4">
-          <h5>Bilbao</h5>
-          <iframe src="https://www.meteoblue.com/en/weather/widget/three/bilbao_spain_3128026?geoloc=fixed&days=3&tempunit=CELSIUS" height="270"></iframe>
-        </div>
-        <div class="col-md-4">
-          <h5>Madrid</h5>
-          <iframe src="https://www.meteoblue.com/en/weather/widget/three/madrid_spain_3117735?geoloc=fixed&days=3&tempunit=CELSIUS" height="270"></iframe>
-        </div>
-        <div class="col-md-4">
-          <h5>Valencia</h5>
-          <iframe src="https://www.meteoblue.com/en/weather/widget/three/valencia_spain_2509954?geoloc=fixed&days=3&tempunit=CELSIUS" height="270"></iframe>
-        </div>
-      </div>
-    </section>
 
     <!-- Emisoras de radio (ahora antes de IA) -->
     <section id="radio" class="my-5">
