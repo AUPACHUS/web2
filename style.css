@@ -1,3 +1,10 @@
+.intro-section {
+    margin-bottom: 24px;
+    background: #e9f1fb;
+    border-radius: 10px;
+    padding: 18px 20px;
+    box-shadow: 0 2px 8px rgba(74,111,165,0.07);
+}
 /* Reset básico y fuentes */
 * {
     margin: 0;
